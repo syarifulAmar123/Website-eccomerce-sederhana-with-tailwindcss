@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="public/css/styles.css">
     <title>Document</title>
 </head>
@@ -47,18 +48,85 @@
 <!-- END PROMOTION -->
 
 <!-- NAVBAR  -->
- <div class="flex items-center justify-between md:px-10">
+ <div class="flex items-center justify-between -mt-28 sm:mt-0 md:px-10">
   <div class="px-5 py-5">
-    <h1 class="text-slate-800 font-bold text-2xl">Elsyarif Store</h1>
+    <h1 class="text-slate-800 font-bold text-2xl">Kajol's Store</h1>
     <p class="text-slate-500 text-sm font-semibold mt-2">Belanja koleksi langka dan murah 🎉</p>
   </div>
-  <div class="p-8 flex flex-col md:p-0 md:flex-row md:py-3">
-    <a class="px-5 py-1.5  bg-sky-700 hover:bg-sky-800  text-center rounded-lg text-slate-100 font-semibold text-[12px]  md:py-3 md:flex md:mt-0 mb-1">
-      <span class="m-auto uppercase cursor-pointer">
+ 
+  <div class="flex h-80 justify-center items-start p-10 pt-20 mt-20
+  sm:hidden">
+    <div
+      x-data="{ open: false }"
+      @keydown.escape.window="open = false"
+      class="relative inline-block text-left"
+    >
+      <!-- Button -->
+      <button
+        @click="open = !open"
+        :aria-expanded="open"
+        type="button"
+        class="inline-flex gap-2 rounded-lg border border-gray-300 bg-sky-700 px-4 py-2 text-sm font-medium text-slate-100 shadow-sm hover:bg-sky-800 focus:ring focus:ring-gray-100"
+      >
+        Options
+  
+        <!-- Chevron Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-100" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+  
+      <!-- Dropdown Panel -->
+      <div
+        x-show="open"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+        @click.outside="open = false"
+        class="absolute left-0 z-10 mt-2 w-48 divide-y divide-gray-100 rounded-lg border border-gray-100 bg-white text-sm shadow-lg"
+      >
+        <div class="p-1">
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            View profile
+          </a>
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            Settings
+          </a>
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            Download
+          </a>
+        </div>
+        <div class="p-1">
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            Help Center
+          </a>
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            Changelog
+          </a>
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            API
+          </a>
+        </div>
+        <div class="p-1">
+          <a href="#" class="flex items-center gap-2 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100">
+            Log out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="p-8 sm:flex flex-col hidden md:p-0 md:flex-row md:py-3">
+    <a class="px-5 py-1.5  bg-sky-700 cursor-pointer hover:bg-sky-800  text-center rounded-lg text-slate-100 font-semibold text-[12px]  md:py-3 md:flex md:mt-0 mb-1">
+      <span class="m-auto uppercase ">
         Home       
       </span> 
-      <a class=" bg-sky-700 hover:bg-sky-800 px-5 py-1.5 rounded-lg text-slate-100 text-center font-semibold text-[12px] md:ml-2 md:flex md:py-3 ">
-       <span class="m-auto uppercase cursor-pointer">
+      <a class=" bg-sky-700 hover:bg-sky-800 cursor-pointer px-5 py-1.5 rounded-lg text-slate-100 text-center font-semibold text-[12px] md:ml-2 md:flex md:py-3 ">
+       <span class="m-auto uppercase ">
          cara belanja
        </span>
       </a>
